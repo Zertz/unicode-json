@@ -6,7 +6,7 @@
   "homepage": "http://github.com/Zertz/unicode-json",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Zertz/-json.git"
+    "url": "git://github.com/Zertz/unicode-json.git"
   },
   "engines": {
     "node": ">=0.10"
