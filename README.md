@@ -1,11 +1,11 @@
-# [unicode-json](https://github.com/Zertz/unicode-json) [![Build Status](https://travis-ci.org/Zertz/unicode-json.svg?branch=master)](https://travis-ci.org/Zertz/unicode-json) [![NPM version](https://badge.fury.io/js/unicode-json.png)](http://badge.fury.io/js/unicode-json)
+# unicode-json [![Build Status](https://travis-ci.org/Zertz/unicode-json.svg?branch=master)](https://travis-ci.org/Zertz/unicode-json) [![NPM version](https://badge.fury.io/js/unicode-json.png)](http://badge.fury.io/js/unicode-json)
 
-> Downloads http://unicode.org/Public/UNIDATA/UnicodeData.txt and saves each category into a JSON file.
+> Downloads http://unicode.org/Public/UNIDATA/UnicodeData.txt and saves each category into a JSON file
 
 ## Install
 
 ```
-npm install unicode-json
+npm install --save unicode-json
 ```
 
 If you got the file already at hand you can specify the path to it in the environment variable `NODE_UNICODETABLE_UNICODEDATA_TXT`.
@@ -13,7 +13,7 @@ If you got the file already at hand you can specify the path to it in the enviro
 ## Usage
 
 ```
-> require('unicode/category/So')["♥".charCodeAt(0)]
+> require('unicode-json/category/So')['♥'.charCodeAt(0)]
 { value: '2665',
   name: 'BLACK HEART SUIT',
   category: 'So',
@@ -31,3 +31,7 @@ If you got the file already at hand you can specify the path to it in the enviro
   titlecase_mapping: '',
   symbol: '♥' }
 ```
+
+## License
+
+MIT
