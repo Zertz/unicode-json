@@ -1,7 +1,7 @@
 {
   "name": "unicode-json",
   "description": "unicode lookup table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Zertz (https://github.com/Zertz)",
   "homepage": "http://github.com/Zertz/unicode-json",
   "repository": {
