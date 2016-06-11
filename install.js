@@ -52,14 +52,14 @@ function stringify (key, value) {
   return '"' + key + '"' + ':' + JSON.stringify(value)
 }
 
-function read_file (success_cb, error_cb) {
+function readFile (successCb, errorCb) {
   var systemfile
   var sysfiles = systemfiles.slice()
-  var try_reading = function (success, error) {
+  var tryReading = function (success, error) {
     systemfile = sysfiles.shift()
 
     if (!systemfile) {
-      return error_cb()
+      return errorCb()
     }
 
     console.info('try to read file %s…', systemfile)
@@ -67,7 +67,7 @@ function read_file (success_cb, error_cb) {
     fs.exists(systemfile, function (exists) {
       if (!exists) {
         console.error('%s not found.', systemfile)
-        return try_reading(success_cb, error_cb)
+        return tryReading(successCb, errorCb)
       }
 
       console.info('parsing…')
@@ -121,7 +121,7 @@ function read_file (success_cb, error_cb) {
           data[key].end('}')
           data[key].once('finish', function () {
             if (--files === 0) {
-              success_cb()
+              successCb()
             }
           })
         }
@@ -129,10 +129,10 @@ function read_file (success_cb, error_cb) {
     })
   }
 
-  try_reading(success_cb, error_cb)
+  tryReading(successCb, errorCb)
 }
 
-function download_file (callback) {
+function downloadFile (callback) {
   var timeouthandle = null
   console.info('%s %s://%s:%d%s', unicodedatafile.method, unicodedatafile.scheme, unicodedatafile.host, unicodedatafile.port, unicodedatafile.path)
 
@@ -166,7 +166,7 @@ function download_file (callback) {
 
     file.on('finish', function () {
       file.close(function () {
-        read_file(callback, callback)
+        readFile(callback, callback)
       })
     })
   }).on('error', function (err) {
@@ -184,15 +184,15 @@ function download_file (callback) {
 
 // run
 if (!module.parent) { // not required
-  read_file(process.exit, function () {
+  readFile(process.exit, function () {
     console.log('try to download…')
-    download_file(process.exit)
+    downloadFile(process.exit)
   })
 } else {
   module.exports = {
     escape: escape,
     stringify: stringify,
-    read_file: read_file,
-    download_file: download_file
+    read_file: readFile,
+    download_file: downloadFile
   }
 }
