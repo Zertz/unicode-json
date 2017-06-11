@@ -28,6 +28,7 @@ var keys = [
 var systemfiles = [
   '/usr/share/unicode/UnicodeData.txt', // debian
   '/usr/share/unicode-data/UnicodeData.txt', // gentoo
+  '/usr/share/unicode/ucd/UnicodeData.txt', // redhat, unicode-ucd package
   process.env.NODE_UNICODETABLE_UNICODEDATA_TXT || 'UnicodeData.txt' // manually downloaded
 ]
 
