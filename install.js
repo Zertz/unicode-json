@@ -65,7 +65,7 @@ function readFile (successCb, errorCb) {
 
     console.info('try to read file %s…', systemfile)
 
-    fs.exists(systemfile, function (exists) {
+    fs.access(systemfile, fs.constants.R_OK, function (exists) {
       if (!exists) {
         console.error('%s not found.', systemfile)
         return tryReading(successCb, errorCb)
@@ -174,12 +174,12 @@ function downloadFile (callback) {
     console.error('Error while downloading %s: %s', path.basename(unicodedatafile.path), err)
     console.log('Please download file manually, put it next to the install.js file and run `node install.js` again.')
     fs.unlink(dst)
-    callback(1)
+    callback(1) // eslint-disable-line
   })
 
   timeouthandle = setTimeout(function () {
     console.error('request timed out.')
-    callback(1)
+    callback(1) // eslint-disable-line
   }, 30 * 1000)
 }
 
