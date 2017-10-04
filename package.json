@@ -2,8 +2,8 @@
   "name": "unicode-json",
   "description": "unicode lookup table",
   "version": "1.0.2",
-  "author": "Zertz (https://github.com/Zertz)",
   "homepage": "http://github.com/Zertz/unicode-json",
+  "author": "Pier-Luc Gendreau",
   "repository": {
     "type": "git",
     "url": "git://github.com/Zertz/unicode-json.git"
