@@ -37,7 +37,7 @@ var unicodedatafile = {
   host: 'unicode.org',
   path: '/Public/UNIDATA/UnicodeData.txt',
   method: 'GET',
-  port: 80
+  port: 443
 }
 
 var proxyServer = process.env.HTTPS_PROXY || process.env.https_proxy || process.env.HTTP_PROXY || process.env.http_proxy
