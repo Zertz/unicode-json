@@ -1,6 +1,6 @@
-# unicode-json [![Build Status](https://travis-ci.org/Zertz/unicode-json.svg?branch=master)](https://travis-ci.org/Zertz/unicode-json) [![NPM version](https://badge.fury.io/js/unicode-json.png)](http://badge.fury.io/js/unicode-json)
+# unicode-json [![Build Status](https://travis-ci.org/Zertz/unicode-json.svg?branch=master)](https://travis-ci.org/Zertz/unicode-json) [![NPM version](https://badge.fury.io/js/unicode-json.png)](https://badge.fury.io/js/unicode-json)
 
-> Downloads http://unicode.org/Public/UNIDATA/UnicodeData.txt and saves each category into a JSON file
+> Downloads https://unicode.org/Public/UNIDATA/UnicodeData.txt and saves each category into a JSON file
 
 ## Install
 

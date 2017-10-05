@@ -3,7 +3,7 @@
 
 var fs = require('fs')
 var path = require('path')
-var http = require('http')
+var https = require('https')
 var readline = require('readline')
 
 // http://www.ksu.ru/eng/departments/ktk/test/perl/lib/unicode/UCDFF301.html
@@ -33,7 +33,7 @@ var systemfiles = [
 ]
 
 var unicodedatafile = {
-  scheme: 'http',
+  scheme: 'https',
   host: 'unicode.org',
   path: '/Public/UNIDATA/UnicodeData.txt',
   method: 'GET',
@@ -65,10 +65,14 @@ function readFile (successCb, errorCb) {
 
     console.info('try to read file %s…', systemfile)
 
-    fs.access(systemfile, fs.constants.R_OK, function (exists) {
-      if (!exists) {
-        console.error('%s not found.', systemfile)
-        return tryReading(successCb, errorCb)
+    fs.access(systemfile, fs.constants.R_OK, function (err) {
+      if (err) {
+        if (err.code === 'ENOENT') {
+          console.error('%s not found.', systemfile)
+          return tryReading(successCb, errorCb)
+        }
+
+        throw err
       }
 
       console.info('parsing…')
@@ -152,7 +156,7 @@ function downloadFile (callback) {
 
   var dst = 'UnicodeData.txt'
 
-  http.get(unicodedatafile, function (res) {
+  https.get(unicodedatafile, function (res) {
     console.log('fetching…')
 
     // stop timeout couting
