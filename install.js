@@ -65,7 +65,7 @@ function readFile (successCb, errorCb) {
 
     console.info('try to read file %s…', systemfile)
 
-    fs.access(systemfile, fs.constants.R_OK, function (err) {
+    fs.access(systemfile, (fs.constants || fs).R_OK, function (err) {
       if (err) {
         if (err.code === 'ENOENT') {
           console.error('%s not found.', systemfile)
