@@ -1,3 +1,9 @@
+# deprecated
+
+> Please upgrade to [node-unicodetable](https://github.com/eversport/node-unicodetable) as it is safer, faster, versioned and fully compatible
+
+---
+
 # unicode-json [![Build Status](https://travis-ci.org/Zertz/unicode-json.svg?branch=master)](https://travis-ci.org/Zertz/unicode-json) [![NPM version](https://badge.fury.io/js/unicode-json.png)](https://badge.fury.io/js/unicode-json)
 
 > Downloads https://unicode.org/Public/UNIDATA/UnicodeData.txt and saves each category into a JSON file
